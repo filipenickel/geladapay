@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      
       <StatusBar style="auto" />
+      <TouchableOpacity style={styles.button} onPress={()=>{}} ><Text style={styles.text}>GeladaPay</Text></TouchableOpacity>
     </View>
   );
 }
@@ -18,4 +19,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button:{
+    backgroundColor:'blue',
+    height: 100,
+    width:400,
+    alignItems:"center",
+    justifyContent:"center"
+  },
+  text:{
+    color:'white',
+    fontSize:35,
+    fontWeight: '700'
+  }
 });

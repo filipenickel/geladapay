@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import BeerCelebration from '../../assets/beer_celebration.svg';
 
-import { Container, Header, Title, Body, Description, Button, ButtonText } from './styles';
+import { Container, Header, Title, Body, Description, Button, ButtonBackground, ButtonText } from './styles';
 
 const Login: React.FC = () => {
   return (
@@ -21,8 +21,10 @@ const Login: React.FC = () => {
         <Description>Lorem ipsum amet, consectetur adipiscing elit.</Description>
       </Body>
       <Button>
-        <ButtonText>Entrar</ButtonText>
-        <Icon name="check" color="#fff" />
+        <ButtonBackground start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#BA0C2F', '#FF6A13']}>
+          <ButtonText>Entrar</ButtonText>
+          <Icon name="check" color="#fff" size={24} />
+        </ButtonBackground>
       </Button>
     </Container>
   );

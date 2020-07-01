@@ -1,5 +1,7 @@
 import styled from 'styled-components/native';
+import { TextInput } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Form } from '@unform/mobile';
 
 export const Container = styled.View`
   flex: 1;
@@ -24,10 +26,22 @@ export const Body = styled.View``;
 
 export const Description = styled.Text``;
 
+export const LoginForm = styled(Form)``;
+
+export const Input = styled(TextInput)`
+  background: #fff;
+  width: 316px;
+  height: 48px;
+  padding-left: 18px;
+  margin: 30px auto 0;
+  border: 1px solid #eee;
+  border-radius: 30px;
+`;
+
 export const Button = styled.TouchableOpacity`
   width: 316px;
   height: 48px;
-  margin: 0 auto 56px auto;
+  margin: 45px auto 56px auto;
 
   box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.18);
   border-radius: 30px;

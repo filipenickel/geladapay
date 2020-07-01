@@ -2,6 +2,7 @@ import React, { useRef, useCallback } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import SvgUri from 'react-native-svg-uri';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 import { FormHandles } from '@unform/core';
 
 import BeerCelebration from '../../assets/beer_celebration.svg';
@@ -20,7 +21,13 @@ import {
 } from './styles';
 
 const Login: React.FC = () => {
+  const navigation = useNavigation();
+
   const formRef = useRef<FormHandles>(null);
+
+  const handleGoBack = useCallback(() => {
+    navigation.goBack();
+  }, [navigation]);
 
   const handleSubmit = useCallback(() => {
     return null;
@@ -29,7 +36,7 @@ const Login: React.FC = () => {
   return (
     <Container>
       <Header>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleGoBack}>
           <Icon name="arrow-left" color="#ff6a13" size={24} />
         </TouchableOpacity>
         <Title>Entrada</Title>

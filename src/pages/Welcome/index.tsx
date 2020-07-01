@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import SvgUri from 'react-native-svg-uri';
 import Icon from 'react-native-vector-icons/Feather';
+
+import { useNavigation } from '@react-navigation/native';
 
 import { TouchableOpacity } from 'react-native';
 import HavingFun from '../../assets/having_fun.svg';
@@ -24,6 +26,12 @@ import {
 } from './styles';
 
 const Welcome: React.FC = () => {
+  const { navigate } = useNavigation();
+
+  const navigateToLogin = useCallback(() => {
+    navigate('Login');
+  }, [navigate]);
+
   return (
     <Container>
       <Header>
@@ -39,7 +47,7 @@ const Welcome: React.FC = () => {
         <SvgUri width="315" height="196" source={HavingFun} />
       </Body>
 
-      <SignInButton activeOpacity={0.7}>
+      <SignInButton activeOpacity={0.7} onPress={navigateToLogin}>
         <ButtonBackground colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
           <ButtonText>Entrar</ButtonText>
           <Icon name="arrow-right" color="#fff" size={18} />

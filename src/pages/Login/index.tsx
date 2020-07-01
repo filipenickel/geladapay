@@ -15,7 +15,7 @@ import {
   Description,
   LoginForm,
   Input,
-  Button,
+  LoginButton,
   ButtonBackground,
   ButtonText,
 } from './styles';
@@ -48,12 +48,12 @@ const Login: React.FC = () => {
       <LoginForm ref={formRef} onSubmit={() => handleSubmit()}>
         <Input placeholder="Nº de telefone ou e-mail" />
         <Input placeholder="Senha" />
-        <Button>
+        <LoginButton activeOpacity={0.7}>
           <ButtonBackground start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#BA0C2F', '#FF6A13']}>
             <ButtonText>Entrar</ButtonText>
             <Icon name="check" color="#fff" size={24} />
           </ButtonBackground>
-        </Button>
+        </LoginButton>
       </LoginForm>
     </Container>
   );

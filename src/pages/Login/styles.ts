@@ -44,15 +44,15 @@ export const Input = styled(TextInput)`
   width: 316px;
   height: 48px;
   padding-left: 18px;
-  margin: 30px auto 0;
+  margin: 0 auto 30px;
   border: 1px solid #eee;
   border-radius: 30px;
 `;
 
-export const Button = styled.TouchableOpacity`
+export const LoginButton = styled.TouchableOpacity`
   width: 316px;
   height: 48px;
-  margin: 45px auto 56px auto;
+  margin: 15px auto 56px auto;
 
   box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.18);
   border-radius: 30px;

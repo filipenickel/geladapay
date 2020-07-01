@@ -1,16 +1,16 @@
 import styled from 'styled-components/native';
+import { Form } from '@unform/mobile';
 import { TextInput } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Form } from '@unform/mobile';
 
 export const Container = styled.View`
   flex: 1;
+  margin-top: 25px;
 `;
 
 export const Header = styled.View`
   flex-direction: row;
   align-items: center;
-  margin-top: 25px;
   margin-left: 18px;
 `;
 

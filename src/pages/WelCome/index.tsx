@@ -13,6 +13,9 @@ import {
   DivImg,
   BackgroundButton,
   SpanButton,
+  DivIconsSocial,
+  ButtonIconSocial,
+  DivGroup,
 } from './styles';
 
 const WelCome: React.FC = () => {
@@ -27,24 +30,40 @@ const WelCome: React.FC = () => {
         <SvgUri width="315" height="315" source={require('../../assets/having_fun.svg')} />
       </DivImg>
 
-      <BackgroundButton colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
-        <Button onPress={() => {}}>
-          <SpanButton>ENTRAR</SpanButton>
-          <Icon name="arrow-right" color="white" />
-        </Button>
-      </BackgroundButton>
+      <DivGroup>
+        <BackgroundButton colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+          <Button onPress={() => {}}>
+            <SpanButton>ENTRAR</SpanButton>
+            <Icon name="arrow-right" color="white" size={18} />
+          </Button>
+        </BackgroundButton>
 
-      <DivButtonFooter>
-        <ButtonSpan onPress={() => {}}>
-          <Span>Cadastrar-se </Span>
-        </ButtonSpan>
+        <DivButtonFooter>
+          <ButtonSpan onPress={() => {}}>
+            <Span>Cadastrar-se </Span>
+          </ButtonSpan>
 
-        <Span>|</Span>
+          <Span>|</Span>
 
-        <ButtonSpan onPress={() => {}}>
-          <Span> Esqueci a minha senha</Span>
-        </ButtonSpan>
-      </DivButtonFooter>
+          <ButtonSpan onPress={() => {}}>
+            <Span> Esqueci a minha senha</Span>
+          </ButtonSpan>
+        </DivButtonFooter>
+      </DivGroup>
+
+      <DivIconsSocial>
+        <ButtonIconSocial>
+          <Icon name="facebook" color="black" size={24} />
+        </ButtonIconSocial>
+
+        <ButtonIconSocial>
+          <Icon name="instagram" color="black" size={24} />
+        </ButtonIconSocial>
+
+        <ButtonIconSocial>
+          <Icon name="twitter" color="black" size={24} />
+        </ButtonIconSocial>
+      </DivIconsSocial>
     </Body>
   );
 };

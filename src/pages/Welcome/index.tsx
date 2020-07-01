@@ -18,7 +18,7 @@ import {
   DivGroup,
 } from './styles';
 
-const WelCome: React.FC = () => {
+const Welcome: React.FC = () => {
   return (
     <Body>
       <Header>
@@ -68,4 +68,4 @@ const WelCome: React.FC = () => {
   );
 };
 
-export default WelCome;
+export default Welcome;

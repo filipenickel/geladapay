@@ -75,7 +75,7 @@ export const DivIconsSocial = styled.View`
 export const ButtonIconSocial = styled.TouchableOpacity`
   background: white;
   margin: 0 5px;
-  padding: 15px
+  padding: 15px;
   border-radius: 70px;
   box-shadow: 0px 3px 9px;
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Default from '../pages/Default';
+import WelCome from '../pages/WelCome';
 
 const App = createStackNavigator();
 
@@ -12,7 +12,7 @@ const Routes: React.FC = () => {
         headerShown: false,
       }}
     >
-      <App.Screen name="Default" component={Default} />
+      <App.Screen name="WelCome" component={WelCome} />
     </App.Navigator>
   );
 };

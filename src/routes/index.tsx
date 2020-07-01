@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from '../pages/Login';
+import WelCome from '../pages/WelCome';
 
 const App = createStackNavigator();
 
@@ -13,6 +14,7 @@ const Routes: React.FC = () => {
       }}
     >
       <App.Screen name="Login" component={Login} />
+      <App.Screen name="WelCome" component={WelCome} />
     </App.Navigator>
   );
 };

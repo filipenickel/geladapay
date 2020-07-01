@@ -22,9 +22,20 @@ export const Title = styled.Text`
   text-transform: uppercase;
 `;
 
-export const Body = styled.View``;
+export const Body = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
 
-export const Description = styled.Text``;
+export const Description = styled.Text`
+  font-size: 18px;
+  color: #333;
+  line-height: 22px;
+  text-align: center;
+  margin-top: 30px;
+  width: 80%;
+`;
 
 export const LoginForm = styled(Form)``;
 

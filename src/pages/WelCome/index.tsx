@@ -2,38 +2,37 @@ import React from 'react';
 import SvgUri from 'react-native-svg-uri';
 import Icon from 'react-native-vector-icons/Feather';
 import {
-  Container,
+  Body,
   Title,
   Button,
   Header,
   Span,
+  SubTitle,
   ButtonSpan,
-  DivButton,
   DivButtonFooter,
   DivImg,
-  GradientLinear,
+  BackgroundButton,
   SpanButton,
 } from './styles';
 
 const WelCome: React.FC = () => {
   return (
-    <Container>
+    <Body>
       <Header>
         <Title>Bem-Vindo ao Choppy</Title>
-        <Span>Lorem ipsum dolor sit amet, consectetur </Span>
+        <SubTitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem. </SubTitle>
       </Header>
+
       <DivImg>
-        <SvgUri width="350" height="350" source={require('../../assets/having_fun.svg')} />
+        <SvgUri width="315" height="315" source={require('../../assets/having_fun.svg')} />
       </DivImg>
 
-      <DivButton>
-        <GradientLinear colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
-          <Button onPress={() => {}}>
-            <SpanButton>ENTRAR</SpanButton>
-            <Icon name="arrow-right" color="white" />
-          </Button>
-        </GradientLinear>
-      </DivButton>
+      <BackgroundButton colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+        <Button onPress={() => {}}>
+          <SpanButton>ENTRAR</SpanButton>
+          <Icon name="arrow-right" color="white" />
+        </Button>
+      </BackgroundButton>
 
       <DivButtonFooter>
         <ButtonSpan onPress={() => {}}>
@@ -46,7 +45,7 @@ const WelCome: React.FC = () => {
           <Span> Esqueci a minha senha</Span>
         </ButtonSpan>
       </DivButtonFooter>
-    </Container>
+    </Body>
   );
 };
 

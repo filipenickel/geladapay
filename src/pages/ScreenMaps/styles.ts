@@ -18,7 +18,13 @@ export const Input = styled(TextInput)`
 `;
 
 export const ContainerSearch = styled.View`
+  flex: 1;
   position: absolute;
+  height: 100%;
+  width:100%
+  justify-content: space-between;
+  align-items: center;
+
 `;
 
 export const FormSearch = styled.View``;
@@ -53,4 +59,11 @@ export const TextsButton = styled.Text`
   font-size: 15px;
   font-family: 'Lato_400Regular';
   margin: 0 12px;
+`;
+
+export const NavContainer = styled.View`
+  background: #f6f6f6;
+  align-self: center;
+  height: 45px;
+  width: 100%;
 `;

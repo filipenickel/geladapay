@@ -1,8 +1,18 @@
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 import MapView from 'react-native-maps';
+import Icon from 'react-native-vector-icons/Feather';
 
-import { Input, Container, IconSearch, ContainerSearch, BackgorundIcon, ButtonSearch } from './styles';
+import {
+  Input,
+  Container,
+  ContainerSearch,
+  BackgorundIcon,
+  ButtonSelectBar,
+  TextsButton,
+  ContainerBar,
+  FormSearch,
+} from './styles';
 
 const styles = StyleSheet.create({
   mapStyle: {
@@ -23,11 +33,32 @@ const SreenMaps: React.FC = () => {
           longitudeDelta: 0.0421,
         }}
       />
+
       <ContainerSearch>
-        <Input placeholder="Pesquisar por bar" />
-        <BackgorundIcon colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
-          <IconSearch name="search" color="#FFFFFF" size={24} />
-        </BackgorundIcon>
+        <FormSearch>
+          <Input placeholder="Pesquisar por bar" />
+          <BackgorundIcon colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+            <Icon name="search" color="#FFFFFF" size={21} />
+          </BackgorundIcon>
+        </FormSearch>
+
+        <ContainerBar>
+          <ButtonSelectBar>
+            <TextsButton>Boteco</TextsButton>
+          </ButtonSelectBar>
+
+          <ButtonSelectBar>
+            <TextsButton>Cervejaria</TextsButton>
+          </ButtonSelectBar>
+
+          <ButtonSelectBar>
+            <TextsButton>Pino Bar</TextsButton>
+          </ButtonSelectBar>
+
+          <ButtonSelectBar>
+            <TextsButton>Pub</TextsButton>
+          </ButtonSelectBar>
+        </ContainerBar>
       </ContainerSearch>
     </Container>
   );

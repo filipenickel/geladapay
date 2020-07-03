@@ -24,7 +24,6 @@ export const ContainerSearch = styled.View`
   width:100%
   justify-content: space-between;
   align-items: center;
-
 `;
 
 export const FormSearch = styled.View``;
@@ -63,7 +62,23 @@ export const TextsButton = styled.Text`
 
 export const NavContainer = styled.View`
   background: #f6f6f6;
+  flex-direction: row;
+  align-items: center;
   align-self: center;
+  justify-content: space-between;
   height: 45px;
   width: 100%;
+`;
+export const ButtonNavBar = styled.TouchableOpacity`
+  margin: 0px 6%;
+`;
+
+export const BackgorundIconBar = styled(LinearGradient)`
+  bottom: 12px;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 30px;
 `;

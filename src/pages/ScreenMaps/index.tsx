@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Callout } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Feather';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import * as Location from 'expo-location';
 import { Alert } from 'react-native';
+import SvgUri from 'react-native-svg-uri';
+import barImg from '../../assets/temp/barimage.jpg';
+import userPoint from '../../assets/user_point.svg';
 import {
   Input,
   Container,
@@ -17,6 +20,12 @@ import {
   NavContainer,
   ButtonNavBar,
   BackgorundIconBar,
+  ViewTooltip,
+  TextTitleTooltip,
+  ImageBar,
+  ViewFeedBack,
+  TextFeddback,
+  ViewImgText,
 } from './styles';
 
 interface userLocation {
@@ -69,9 +78,37 @@ const SreenMaps: React.FC = () => {
             latitude: initialPosition[0],
             longitude: initialPosition[1],
           }}
-          title="teste"
-          description="description"
-        />
+        >
+          <SvgUri source={userPoint} />
+        </Marker>
+
+        <Marker
+          coordinate={{
+            latitude: -23.553439,
+            longitude: -46.799635,
+          }}
+        >
+          <Icon name="map-pin" color="#FF6A13" size={24} />
+
+          <Callout tooltip>
+            <ViewTooltip>
+              <ViewImgText>
+                <Text>
+                  <ImageBar source={barImg} />
+                </Text>
+
+                <TextTitleTooltip>Bar São Jorge</TextTitleTooltip>
+              </ViewImgText>
+
+              <ViewFeedBack>
+                <Icon name="star" color="#FF6A13" size={24} />
+                <TextFeddback>4.5</TextFeddback>
+                <Icon name="heart" color="#333333" size={24} />
+                <TextFeddback>9.3k</TextFeddback>
+              </ViewFeedBack>
+            </ViewTooltip>
+          </Callout>
+        </Marker>
       </MapView>
 
       <ContainerSearch>

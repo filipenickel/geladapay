@@ -9,6 +9,7 @@ import Emerson from '../../assets/temp/emerson.png';
 import Filipe from '../../assets/temp/filipe.png';
 
 import BottomNavigation from '../../components/BottomNavigation';
+import Modal from '../../components/Modal';
 
 import {
   Styling,
@@ -132,6 +133,7 @@ const MyTable: React.FC = () => {
         </TableParticipants>
       </Styling>
       <BottomNavigation />
+      <Modal />
     </>
   );
 };

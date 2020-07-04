@@ -24,7 +24,7 @@ const App: React.FC = () => {
   return (
     <NavigationContainer>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#f6f6f6' }}>
         <Routes />
       </SafeAreaView>
     </NavigationContainer>

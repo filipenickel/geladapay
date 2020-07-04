@@ -1,7 +1,6 @@
 import React, { useRef, useCallback } from 'react';
 import { Alert, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import SvgUri from 'react-native-svg-uri';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { FormHandles } from '@unform/core';
@@ -9,7 +8,7 @@ import * as Yup from 'yup';
 
 import getValidationErrors from '../../utils/getValidationError';
 
-import BeerCelebration from '../../assets/beer_celebration.svg';
+import BeerCelebration from '../../assets/BeerCelebration';
 
 import {
   Container,
@@ -73,7 +72,7 @@ const Login: React.FC = () => {
         <Title>Entrada</Title>
       </Header>
       <Body>
-        <SvgUri width="210" height="181" source={BeerCelebration} />
+        <BeerCelebration />
         <Description>Lorem ipsum amet, consectetur adipiscing elit.</Description>
       </Body>
       <LoginForm ref={formRef} onSubmit={handleLogin}>

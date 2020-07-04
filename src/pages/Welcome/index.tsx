@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react';
-import SvgUri from 'react-native-svg-uri';
 import Icon from 'react-native-vector-icons/Feather';
 
 import { useNavigation } from '@react-navigation/native';
 
 import { TouchableOpacity } from 'react-native';
-import HavingFun from '../../assets/having_fun.svg';
+import HavingFun from '../../assets/HavingFun';
 
 import {
   Container,
@@ -44,7 +43,7 @@ const Welcome: React.FC = () => {
       </Header>
 
       <Body>
-        <SvgUri width="315" height="196" source={HavingFun} />
+        <HavingFun />
       </Body>
 
       <SignInButton activeOpacity={0.7} onPress={navigateToLogin}>

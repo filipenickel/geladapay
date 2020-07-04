@@ -85,36 +85,50 @@ export const BackgorundIconBar = styled(LinearGradient)`
 
 // Estilização do ToolTip do Marker
 export const ViewTooltip = styled.View`
-flex:1
-flex-direction: column;
-border-radius: 9px;
+  flex-direction: column;
+  border-radius: 9px;
   background: #ffffff;
-  width: 128.18px
-  height: 88px;
+  min-width: 128.18px
+  min-height: 88px;
+  padding: 3px;
 `;
 
 export const ViewImgText = styled.View`
-flex:1
-  align-items: center;
-  flex-direction: column;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+export const ImageBar = styled.Text`
+  border-radius: 50px;
+`;
+
+export const TooltipImage = styled.Image`
+  border-radius: 30px;
+  width: 45px;
+  height: 45px;
 `;
 
 export const TextTitleTooltip = styled.Text`
   font-size: 18px;
   font-family: 'Lato_400Regular';
   align-items: center;
-`;
-
-export const ImageBar = styled.Image`
-  width: 75px;
-  height: 50px;
+  max-width: 66.82px;
 `;
 
 export const ViewFeedBack = styled.View`
+  width: 100%;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 8%;
+  margin-top: 6px;
 `;
 
-export const TextFeddback = styled.Text``;
+export const Feedback = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const TextFeedback = styled.Text`
+  margin-left: 6px;
+`;

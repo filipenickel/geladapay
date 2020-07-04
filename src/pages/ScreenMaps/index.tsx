@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import React, { useState, useEffect, useCallback, Fragment } from 'react';
+import { StyleSheet, Dimensions, View } from 'react-native';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Feather';
-import { View, Text } from 'react-native';
 import * as Location from 'expo-location';
 import { Alert } from 'react-native';
 import SvgUri from 'react-native-svg-uri';
+import { boolean } from 'yup';
 import barImg from '../../assets/temp/barimage.jpg';
+import PopupInfo from '../../components/PopupInfo';
 import userPoint from '../../assets/user_point.svg';
 import {
   Input,
@@ -22,15 +23,20 @@ import {
   BackgorundIconBar,
   ViewTooltip,
   TextTitleTooltip,
-  ImageBar,
   ViewFeedBack,
-  TextFeddback,
+  TextFeedback,
   ViewImgText,
+  ImageBar,
+  Feedback,
+  TooltipImage,
 } from './styles';
 
 interface userLocation {
   latitude: number;
   longitude: number;
+}
+interface Props {
+  visible: boolean;
 }
 
 const styles = StyleSheet.create({
@@ -42,6 +48,7 @@ const styles = StyleSheet.create({
 
 const SreenMaps: React.FC = () => {
   const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     async function loadPosition(): Promise<number[] | undefined> {
@@ -61,6 +68,10 @@ const SreenMaps: React.FC = () => {
     }
     loadPosition();
   }, []);
+  const handleClick = useCallback(() => {
+    setModalVisible(true);
+    console.log(modalVisible);
+  }, [modalVisible]);
 
   return (
     <Container>
@@ -84,27 +95,31 @@ const SreenMaps: React.FC = () => {
 
         <Marker
           coordinate={{
-            latitude: -23.553439,
-            longitude: -46.799635,
+            latitude: 37.420475,
+            longitude: -122.085366,
           }}
         >
           <Icon name="map-pin" color="#FF6A13" size={24} />
 
-          <Callout tooltip>
+          <Callout tooltip onPress={handleClick}>
             <ViewTooltip>
               <ViewImgText>
-                <Text>
-                  <ImageBar source={barImg} />
-                </Text>
-
+                <ImageBar>
+                  <TooltipImage source={barImg} />
+                </ImageBar>
                 <TextTitleTooltip>Bar São Jorge</TextTitleTooltip>
               </ViewImgText>
 
               <ViewFeedBack>
-                <Icon name="star" color="#FF6A13" size={24} />
-                <TextFeddback>4.5</TextFeddback>
-                <Icon name="heart" color="#333333" size={24} />
-                <TextFeddback>9.3k</TextFeddback>
+                <Feedback>
+                  <Icon name="star" color="#FF6A13" size={24} />
+                  <TextFeedback>4.5</TextFeedback>
+                </Feedback>
+
+                <Feedback>
+                  <Icon name="heart" color="#333333" size={24} />
+                  <TextFeedback>9.3k</TextFeedback>
+                </Feedback>
               </ViewFeedBack>
             </ViewTooltip>
           </Callout>
@@ -138,7 +153,9 @@ const SreenMaps: React.FC = () => {
             </ButtonSelectBar>
           </ContainerBar>
         </View>
-
+        <>
+          <PopupInfo visible={modalVisible} />
+        </>
         <NavContainer>
           <ButtonNavBar>
             <Icon name="map-pin" color="#FF6A13" size={24} />

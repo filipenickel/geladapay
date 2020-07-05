@@ -8,7 +8,7 @@ interface Props {
 const Modal: React.FC<Props> = ({ children, isOpen }) => {
   return (
     <Container isOpen={isOpen}>
-      <ContentBox>{children}</ContentBox>
+      <ContentBox isOpen={isOpen}>{children}</ContentBox>
     </Container>
   );
 };

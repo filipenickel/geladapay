@@ -9,35 +9,36 @@ import Modal from '../../components/Modal';
 
 import barImg from '../../assets/temp/barimage.jpg';
 import UserPoint from '../../assets/UserPoint';
+
 import {
-  Input,
   Container,
+  ViewTooltip,
+  ViewImgText,
+  TooltipImage,
+  TextTitleTooltip,
+  ViewFeedback,
+  Feedback,
+  TextPonts,
   ContainerSearch,
+  FormSearch,
+  Input,
   BackgorundIcon,
+  ContainerBar,
   ButtonSelectBar,
   TextsButton,
-  ContainerBar,
-  FormSearch,
-  ViewTooltip,
-  TextTitleTooltip,
-  ViewFeedBack,
-  TextFeedback,
-  ViewImgText,
-  Feedback,
-  TooltipImage,
-  NameBar,
+  ViewClose,
   ViewHeader,
   ImageBarDescription,
-  IconsFeedback,
+  NameBar,
   ViewPonts,
-  TextPonts,
+  IconsFeedback,
+  TextFeedback,
+  IconsFeedback2,
   ViewDescription,
   TextDescription,
-  IconsFeedback2,
   SignInButton,
   ButtonBackground,
   ButtonText,
-  ViewClose,
 } from './styles';
 
 interface userLocation {
@@ -122,7 +123,7 @@ const Maps: React.FC = () => {
                 <TextTitleTooltip>Bar São Jorge</TextTitleTooltip>
               </ViewImgText>
 
-              <ViewFeedBack>
+              <ViewFeedback>
                 <Feedback>
                   <Icon name="star" color="#FF6A13" size={24} />
                   <TextPonts>4.5</TextPonts>
@@ -132,7 +133,7 @@ const Maps: React.FC = () => {
                   <Icon name="heart" color="#333333" size={24} />
                   <TextPonts>9.3k</TextPonts>
                 </Feedback>
-              </ViewFeedBack>
+              </ViewFeedback>
             </ViewTooltip>
           </Callout>
         </Marker>

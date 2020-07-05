@@ -4,11 +4,10 @@ import { Container, ContentBox } from './styles';
 
 interface Props {
   isOpen: boolean;
-  isOpenQr: boolean;
 }
-const Modal: React.FC<Props> = ({ children, isOpen, isOpenQr }) => {
+const Modal: React.FC<Props> = ({ children, isOpen }) => {
   return (
-    <Container isOpen={isOpen} isOpenQr={isOpenQr}>
+    <Container isOpen={isOpen}>
       <ContentBox>{children}</ContentBox>
     </Container>
   );

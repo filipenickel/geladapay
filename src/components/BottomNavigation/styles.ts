@@ -7,6 +7,7 @@ export const Container = styled.View`
   justify-content: space-around;
   height: 45px;
   width: 100%;
+  background: #f6f6f6;
 `;
 
 export const QRCodeBackground = styled(LinearGradient)`

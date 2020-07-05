@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Welcome from '../pages/Welcome';
 import Login from '../pages/Login';
 import MyTable from '../pages/MyTable';
+import Maps from '../pages/Maps';
+import Cards from '../pages/Cards';
 
 const App = createStackNavigator();
 
@@ -14,6 +16,8 @@ const Routes: React.FC = () => {
         headerShown: false,
       }}
     >
+      <App.Screen name="Maps" component={Maps} />
+      <App.Screen name="Cards" component={Cards} />
       <App.Screen name="MyTable" component={MyTable} />
       <App.Screen name="Welcome" component={Welcome} />
       <App.Screen name="Login" component={Login} />

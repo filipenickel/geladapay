@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-const UserPoint: React.FC = () => (
+const MapMarker: React.FC = () => (
   <Svg width="44" height="44" viewBox="0 0 44 44" fill="none">
     <Path
       d="M22 40.3334C32.1252 40.3334 40.3333 32.1252 40.3333 22C40.3333 11.8748 32.1252 3.66669 22 3.66669C11.8748 3.66669 3.66667 11.8748 3.66667 22C3.66667 32.1252 11.8748 40.3334 22 40.3334Z"
@@ -18,4 +18,4 @@ const UserPoint: React.FC = () => (
   </Svg>
 );
 
-export default UserPoint;
+export default MapMarker;

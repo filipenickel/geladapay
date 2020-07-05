@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { StyleSheet, Dimensions, View } from 'react-native';
+import { Alert, Dimensions } from 'react-native';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Feather';
 import * as Location from 'expo-location';
-import { Alert } from 'react-native';
+
 import BottomNavigation from '../../components/BottomNavigation';
 import Modal from '../../components/Modal';
 
-import UserPoint from '../../assets/UserPoint';
+import MapMarker from '../../assets/MapMarker';
 import TempImage from '../../assets/temp/retailer_image.png';
 
 import {
@@ -37,22 +37,9 @@ import {
   BarModalButtonText,
 } from './styles';
 
-interface userLocation {
-  latitude: number;
-  longitude: number;
-}
-
-const styles = StyleSheet.create({
-  mapStyle: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
-});
-
 const Maps: React.FC = () => {
   const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [numberModal, setNumberModal] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     async function loadPosition(): Promise<number[] | undefined> {
@@ -73,21 +60,21 @@ const Maps: React.FC = () => {
     loadPosition();
   }, []);
 
-  const handleOpen = useCallback(() => {
-    setModalVisible(true);
-    setNumberModal(0);
-    console.log(modalVisible, setNumberModal);
-  }, [modalVisible]);
-  const handleClose = useCallback(() => {
-    setModalVisible(false);
-    console.log(modalVisible);
-  }, [modalVisible]);
+  const openModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
 
   return (
     <>
       <Container>
         <MapView
-          style={styles.mapStyle}
+          style={{
+            width: Dimensions.get('window').width,
+            height: Dimensions.get('window').height,
+          }}
           region={{
             latitude: initialPosition[0],
             longitude: initialPosition[1],
@@ -101,7 +88,7 @@ const Maps: React.FC = () => {
               longitude: initialPosition[1],
             }}
           >
-            <UserPoint />
+            <MapMarker />
           </Marker>
 
           <Marker
@@ -112,7 +99,7 @@ const Maps: React.FC = () => {
           >
             <Icon name="map-pin" color="#ff6a13" size={24} />
 
-            <Callout tooltip onPress={handleOpen}>
+            <Callout tooltip onPress={openModal}>
               <MapTooltip>
                 <TooltipBarName>Bar São Jorge</TooltipBarName>
 
@@ -156,12 +143,12 @@ const Maps: React.FC = () => {
               <SearchOptionsPillText>Pub</SearchOptionsPillText>
             </SearchOptionsPill>
           </SearchOptions>
-          <Modal isOpen={modalVisible}>
-            <BarModalCloseButton onPress={handleClose}>
+          <Modal isOpen={isModalOpen}>
+            <BarModalCloseButton onPress={closeModal}>
               <Icon name="x" size={24} />
             </BarModalCloseButton>
             <BarModalHeader>
-              <BarModalImage isOpen={modalVisible} source={TempImage} />
+              <BarModalImage isOpen={isModalOpen} source={TempImage} />
               <BarModalTitle>Bar São Jorge</BarModalTitle>
             </BarModalHeader>
             <BarModalFeedbackSection>

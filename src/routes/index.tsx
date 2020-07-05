@@ -16,11 +16,11 @@ const Routes: React.FC = () => {
         headerShown: false,
       }}
     >
-      <App.Screen name="Maps" component={Maps} />
-      <App.Screen name="Wallet" component={Wallet} />
-      <App.Screen name="MyTable" component={MyTable} />
       <App.Screen name="Welcome" component={Welcome} />
       <App.Screen name="Login" component={Login} />
+      <App.Screen name="Maps" component={Maps} />
+      <App.Screen name="MyTable" component={MyTable} />
+      <App.Screen name="Wallet" component={Wallet} />
     </App.Navigator>
   );
 };

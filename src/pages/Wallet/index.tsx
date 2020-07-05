@@ -46,7 +46,7 @@ const Cards: React.FC = () => {
           </ViewBoxOptions>
           <ViewBoxOptions>
             <Icon name="file-text" color="#FF6A13" size={30} />
-            <TextOption>Histórico de Pagamentos</TextOption>
+            <TextOption>Histórico de Paga- mentos</TextOption>
           </ViewBoxOptions>
         </ConfigCard>
 

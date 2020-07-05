@@ -32,11 +32,15 @@ const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const PasswordInputRef = useRef<TextInput>(null);
 
-  const navigation = useNavigation();
+  const { goBack, navigate } = useNavigation();
 
   const handleGoBack = useCallback(() => {
-    navigation.goBack();
-  }, [navigation]);
+    goBack();
+  }, [goBack]);
+
+  const navigateToApp = useCallback(() => {
+    navigate('Maps');
+  }, [navigate]);
 
   const handleLogin = useCallback(async (data: LoginFormData) => {
     try {
@@ -48,8 +52,6 @@ const Login: React.FC = () => {
       });
 
       await schema.validate(data, { abortEarly: false });
-
-      Alert.alert('Debug de dev JavaScript', 'console.log()');
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
@@ -83,6 +85,7 @@ const Login: React.FC = () => {
           name="email"
           placeholder="Nº de telefone ou e-mail"
           returnKeyType="next"
+          defaultValue="email@teste.com"
           onSubmitEditing={() => {
             PasswordInputRef.current?.focus();
           }}
@@ -93,16 +96,12 @@ const Login: React.FC = () => {
           placeholder="Senha"
           secureTextEntry
           returnKeyType="send"
+          defaultValue="123456"
           onSubmitEditing={() => {
             formRef.current?.submitForm();
           }}
         />
-        <LoginButton
-          activeOpacity={0.7}
-          onPress={() => {
-            formRef.current?.submitForm();
-          }}
-        >
+        <LoginButton activeOpacity={0.7} onPress={navigateToApp}>
           <ButtonBackground start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#BA0C2F', '#FF6A13']}>
             <ButtonText>Entrar</ButtonText>
             <Icon name="check" color="#fff" size={24} />

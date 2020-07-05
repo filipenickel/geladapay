@@ -3,6 +3,7 @@ import { Alert, Dimensions } from 'react-native';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Feather';
 import * as Location from 'expo-location';
+import { useNavigation } from '@react-navigation/native';
 
 import BottomNavigation from '../../components/BottomNavigation';
 import Modal from '../../components/Modal';
@@ -38,6 +39,8 @@ import {
 } from './styles';
 
 const Maps: React.FC = () => {
+  const { navigate } = useNavigation();
+
   const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -59,6 +62,10 @@ const Maps: React.FC = () => {
     }
     loadPosition();
   }, []);
+
+  const navigateToMyTable = useCallback(() => {
+    navigate('MyTable');
+  }, [navigate]);
 
   const openModal = useCallback(() => {
     setIsModalOpen(true);
@@ -165,7 +172,7 @@ const Maps: React.FC = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit mauris id scelerisque urna fermentum
               pellentesque id nunc.
             </BarModalDescription>
-            <BarModalButton activeOpacity={0.7}>
+            <BarModalButton activeOpacity={0.7} onPress={navigateToMyTable}>
               <BarModalButtonBackground colors={['#BA0C2F', '#ff6a13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
                 <BarModalButtonText>Criar uma mesa</BarModalButtonText>
                 <Icon name="plus" color="#fff" size={18} />

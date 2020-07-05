@@ -4,12 +4,11 @@ import MapView, { Marker, Callout } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Feather';
 import * as Location from 'expo-location';
 import { Alert } from 'react-native';
-import SvgUri from 'react-native-svg-uri';
 import BottomNavigation from '../../components/BottomNavigation';
 import Modal from '../../components/Modal';
 
 import barImg from '../../assets/temp/barimage.jpg';
-import userPoint from '../../assets/user_point.svg';
+import UserPoint from '../../assets/UserPoint';
 import {
   Input,
   Container,
@@ -104,7 +103,7 @@ const Maps: React.FC = () => {
             longitude: initialPosition[1],
           }}
         >
-          <SvgUri source={userPoint} />
+          <UserPoint />
         </Marker>
 
         <Marker

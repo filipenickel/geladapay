@@ -56,7 +56,6 @@ export const ViewBoxOptions = styled.View`
   border-radius: 9px;
   align-items: center;
 `;
-export const TextIcon = styled.Text``;
 export const TextOption = styled.Text`
   text-align: center;
   margin-top: 9px;

@@ -1,12 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-
-import TempImage from '../../assets/temp/retailer_image.png';
-import Zacarias from '../../assets/temp/zacarias.png';
-import Aran from '../../assets/temp/aran.png';
-import Emerson from '../../assets/temp/emerson.png';
-import Filipe from '../../assets/temp/filipe.png';
 
 import BottomNavigation from '../../components/BottomNavigation';
 import VisaLogo from '../../assets/visalogo.png';
@@ -20,7 +13,6 @@ import {
   AddSaldoText,
   ConfigCard,
   ViewBoxOptions,
-  TextIcon,
   TextOption,
   ViewCardsAdd,
   TextTitleCards,

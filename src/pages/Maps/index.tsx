@@ -7,38 +7,34 @@ import { Alert } from 'react-native';
 import BottomNavigation from '../../components/BottomNavigation';
 import Modal from '../../components/Modal';
 
-import barImg from '../../assets/temp/barimage.jpg';
 import UserPoint from '../../assets/UserPoint';
+import TempImage from '../../assets/temp/retailer_image.png';
 
 import {
   Container,
-  ViewTooltip,
-  ViewImgText,
-  TooltipImage,
-  TextTitleTooltip,
-  ViewFeedback,
+  MapTooltip,
+  TooltipBarName,
+  TooltipBarFeedback,
   Feedback,
-  TextPonts,
-  ContainerSearch,
-  FormSearch,
-  Input,
-  BackgorundIcon,
-  ContainerBar,
-  ButtonSelectBar,
-  TextsButton,
-  ViewClose,
-  ViewHeader,
-  ImageBarDescription,
-  NameBar,
-  ViewPonts,
-  IconsFeedback,
-  TextFeedback,
-  IconsFeedback2,
-  ViewDescription,
-  TextDescription,
-  SignInButton,
-  ButtonBackground,
-  ButtonText,
+  FeedbackText,
+  UserInterface,
+  SearchBar,
+  SearchInput,
+  SearchButtonBackground,
+  SearchOptions,
+  SearchOptionsPill,
+  SearchOptionsPillText,
+  BarModalCloseButton,
+  BarModalHeader,
+  BarModalImage,
+  BarModalTitle,
+  BarModalFeedbackSection,
+  BarModalFeedback,
+  BarModalFeedbackText,
+  BarModalDescription,
+  BarModalButton,
+  BarModalButtonBackground,
+  BarModalButtonText,
 } from './styles';
 
 interface userLocation {
@@ -88,120 +84,111 @@ const Maps: React.FC = () => {
   }, [modalVisible]);
 
   return (
-    <Container>
-      <MapView
-        style={styles.mapStyle}
-        region={{
-          latitude: initialPosition[0],
-          longitude: initialPosition[1],
-          latitudeDelta: 0.011,
-          longitudeDelta: 0.011,
-        }}
-      >
-        <Marker
-          coordinate={{
+    <>
+      <Container>
+        <MapView
+          style={styles.mapStyle}
+          region={{
             latitude: initialPosition[0],
             longitude: initialPosition[1],
+            latitudeDelta: 0.011,
+            longitudeDelta: 0.011,
           }}
         >
-          <UserPoint />
-        </Marker>
+          <Marker
+            coordinate={{
+              latitude: initialPosition[0],
+              longitude: initialPosition[1],
+            }}
+          >
+            <UserPoint />
+          </Marker>
 
-        <Marker
-          coordinate={{
-            latitude: 37.420475,
-            longitude: -122.085366,
-          }}
-        >
-          <Icon name="map-pin" color="#FF6A13" size={24} />
+          <Marker
+            coordinate={{
+              latitude: -7.1343216,
+              longitude: -34.8505928,
+            }}
+          >
+            <Icon name="map-pin" color="#ff6a13" size={24} />
 
-          <Callout tooltip onPress={handleOpen}>
-            <ViewTooltip>
-              <ViewImgText>
-                <TooltipImage source={barImg} />
+            <Callout tooltip onPress={handleOpen}>
+              <MapTooltip>
+                <TooltipBarName>Bar São Jorge</TooltipBarName>
 
-                <TextTitleTooltip>Bar São Jorge</TextTitleTooltip>
-              </ViewImgText>
+                <TooltipBarFeedback>
+                  <Feedback>
+                    <Icon name="star" color="#ff6a13" size={18} />
+                    <FeedbackText>4.5</FeedbackText>
+                  </Feedback>
+                  <Feedback>
+                    <Icon name="heart" color="#ba0c2f" size={18} />
+                    <FeedbackText>9.3k</FeedbackText>
+                  </Feedback>
+                </TooltipBarFeedback>
+              </MapTooltip>
+            </Callout>
+          </Marker>
+        </MapView>
 
-              <ViewFeedback>
-                <Feedback>
-                  <Icon name="star" color="#FF6A13" size={24} />
-                  <TextPonts>4.5</TextPonts>
-                </Feedback>
-
-                <Feedback>
-                  <Icon name="heart" color="#333333" size={24} />
-                  <TextPonts>9.3k</TextPonts>
-                </Feedback>
-              </ViewFeedback>
-            </ViewTooltip>
-          </Callout>
-        </Marker>
-      </MapView>
-
-      <ContainerSearch>
-        <View>
-          <FormSearch>
-            <Input placeholder="Pesquisar por bar" />
-            <BackgorundIcon colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+        <UserInterface>
+          <SearchBar>
+            <SearchInput placeholder="Pesquisar por bar" />
+            <SearchButtonBackground colors={['#BA0C2F', '#ff6a13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
               <Icon name="search" color="#FFFFFF" size={21} />
-            </BackgorundIcon>
-          </FormSearch>
+            </SearchButtonBackground>
+          </SearchBar>
 
-          <ContainerBar>
-            <ButtonSelectBar>
-              <TextsButton>Boteco</TextsButton>
-            </ButtonSelectBar>
+          <SearchOptions>
+            <SearchOptionsPill>
+              <SearchOptionsPillText>Boteco</SearchOptionsPillText>
+            </SearchOptionsPill>
 
-            <ButtonSelectBar>
-              <TextsButton>Cervejaria</TextsButton>
-            </ButtonSelectBar>
+            <SearchOptionsPill>
+              <SearchOptionsPillText>Cervejaria</SearchOptionsPillText>
+            </SearchOptionsPill>
 
-            <ButtonSelectBar>
-              <TextsButton>Pino Bar</TextsButton>
-            </ButtonSelectBar>
+            <SearchOptionsPill>
+              <SearchOptionsPillText>Pino Bar</SearchOptionsPillText>
+            </SearchOptionsPill>
 
-            <ButtonSelectBar>
-              <TextsButton>Pub</TextsButton>
-            </ButtonSelectBar>
-          </ContainerBar>
-        </View>
-        <BottomNavigation />
-        {/* Modal Bar Info */}
-        <Modal isOpen={modalVisible}>
-          <ViewClose onPress={handleClose}>
-            <Icon name="x" color="#FF6A13" size={24} />
-          </ViewClose>
-          <ViewHeader>
-            <ImageBarDescription source={barImg} />
-            <NameBar>Bar São Jorge</NameBar>
-          </ViewHeader>
-          <ViewPonts>
-            <IconsFeedback>
-              <Icon name="star" color="#FF6A13" size={24} />
-              <TextFeedback>4.5</TextFeedback>
-            </IconsFeedback>
-
-            <IconsFeedback2>
-              <Icon name="heart" color="#333333" size={24} />
-              <TextFeedback>9.3k</TextFeedback>
-            </IconsFeedback2>
-          </ViewPonts>
-          <ViewDescription>
-            <TextDescription>
+            <SearchOptionsPill>
+              <SearchOptionsPillText>Pub</SearchOptionsPillText>
+            </SearchOptionsPill>
+          </SearchOptions>
+          <Modal isOpen={modalVisible}>
+            <BarModalCloseButton onPress={handleClose}>
+              <Icon name="x" size={24} />
+            </BarModalCloseButton>
+            <BarModalHeader>
+              <BarModalImage isOpen={modalVisible} source={TempImage} />
+              <BarModalTitle>Bar São Jorge</BarModalTitle>
+            </BarModalHeader>
+            <BarModalFeedbackSection>
+              <BarModalFeedback>
+                <Icon name="star" color="#ff6a13" size={18} />
+                <BarModalFeedbackText>4.5</BarModalFeedbackText>
+              </BarModalFeedback>
+              <BarModalFeedback style={{ marginLeft: 37 }}>
+                <Icon name="heart" color="#ba0c2f" size={18} />
+                <BarModalFeedbackText>9.3k</BarModalFeedbackText>
+              </BarModalFeedback>
+            </BarModalFeedbackSection>
+            <BarModalDescription>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit mauris id scelerisque urna fermentum
-              pellentesque id nunc.{' '}
-            </TextDescription>
-          </ViewDescription>
-          <SignInButton activeOpacity={0.7}>
-            <ButtonBackground colors={['#BA0C2F', '#FF6A13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
-              <ButtonText>Criar uma mesa</ButtonText>
-              <Icon name="plus" color="#fff" size={18} />
-            </ButtonBackground>
-          </SignInButton>
-        </Modal>
-      </ContainerSearch>
-    </Container>
+              pellentesque id nunc.
+            </BarModalDescription>
+            <BarModalButton activeOpacity={0.7}>
+              <BarModalButtonBackground colors={['#BA0C2F', '#ff6a13']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+                <BarModalButtonText>Criar uma mesa</BarModalButtonText>
+                <Icon name="plus" color="#fff" size={18} />
+              </BarModalButtonBackground>
+            </BarModalButton>
+          </Modal>
+        </UserInterface>
+      </Container>
+      <BottomNavigation />
+    </>
   );
 };
 

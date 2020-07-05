@@ -2,43 +2,31 @@ import styled from 'styled-components/native';
 import { TextInput } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
+interface ModalProps {
+  isOpen: boolean;
+}
+
 export const Container = styled.View`
   flex: 1;
-  align-items: center;
 `;
 
-export const ViewTooltip = styled.View`
-  flex-direction: column;
+export const MapTooltip = styled.View`
+  width: 120px;
+  height: 45px;
+  background: #fff;
+  padding: 0 6px;
   border-radius: 9px;
-  background: #ffffff;
-  min-width: 128.18px;
-  min-height: 88px;
-  padding: 3px;
 `;
 
-export const ViewImgText = styled.View`
-  width: 100%;
+export const TooltipBarName = styled.Text`
+  font-family: 'Lato_400Regular';
+  font-size: 18px;
+`;
+
+export const TooltipBarFeedback = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
-`;
-
-export const TooltipImage = styled.Image`
-  border-radius: 30px;
-  width: 45px;
-  height: 45px;
-`;
-
-export const TextTitleTooltip = styled.Text`
-  font-size: 18px;
-  font-family: 'Lato_400Regular';
-  align-items: center;
-  max-width: 66.82px;
-`;
-
-export const ViewFeedback = styled.View`
-  flex-direction: row;
-  align-items: flex-start;
+  margin-top: 3px;
 `;
 
 export const Feedback = styled.View`
@@ -46,143 +34,123 @@ export const Feedback = styled.View`
   align-items: center;
 `;
 
-export const TextPonts = styled.Text`
+export const FeedbackText = styled.Text`
   margin-left: 6px;
 `;
 
-export const ContainerSearch = styled.View`
-  flex: 1;
+export const UserInterface = styled.View`
   position: absolute;
   height: 100%;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
 `;
 
-export const FormSearch = styled.View``;
+export const SearchBar = styled.View`
+  width: 90%;
+`;
 
-export const Input = styled(TextInput)`
+export const SearchInput = styled(TextInput)`
   background: #fff;
   height: 48px;
-  padding-left: 18px;
-  border: 1px solid #eee;
-  border-radius: 30px;
+  padding-left: 21px;
   margin-top: 24px;
-  font-size: 18px;
+  border-radius: 30px;
   font-family: 'Lato_400Regular';
+  font-size: 18px;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.15);
 `;
 
-export const BackgorundIcon = styled(LinearGradient)`
+export const SearchButtonBackground = styled(LinearGradient)`
+  position: absolute;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  border-radius: 30px;
-  height: 42px;
   width: 42px;
+  height: 42px;
+  border-radius: 30px;
   bottom: 3px;
   right: 3px;
 `;
 
-export const ContainerBar = styled.View`
+export const SearchOptions = styled.View`
   flex-direction: row;
-  width: 338px;
-  height: 30px;
   justify-content: space-between;
-  top: 19px;
+  width: 90%;
+  margin-top: 19px;
 `;
 
-export const ButtonSelectBar = styled.TouchableOpacity`
-  justify-content: center;
+export const SearchOptionsPill = styled.TouchableOpacity`
   align-items: center;
-  background: #ffffff;
+  justify-content: center;
+  background: #fff;
+  padding: 4px 12px;
+  border-radius: 30px;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.15);
+`;
+
+export const SearchOptionsPillText = styled.Text`
+  font-family: 'Lato_400Regular';
+  font-size: 15px;
+`;
+
+export const BarModalCloseButton = styled.TouchableOpacity`
+  align-items: flex-end;
+`;
+
+export const BarModalHeader = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const BarModalImage = styled.Image<ModalProps>`
+  ${props => (props.isOpen ? 'width: 60px; height: 60px;' : 'width: 0; height: 0')};
   border-radius: 30px;
 `;
 
-export const TextsButton = styled.Text`
-  font-size: 15px;
-  font-family: 'Lato_400Regular';
-  margin: 0 12px;
-`;
-
-export const ViewClose = styled.TouchableOpacity`
-  align-items: flex-end;
-  margin: 20px;
-`;
-
-export const ViewHeader = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-left: 18px;
-`;
-
-export const ImageBarDescription = styled.Image`
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
-`;
-
-export const NameBar = styled.Text`
-  font-weight: bold;
+export const BarModalTitle = styled.Text`
+  font-family: 'Lato_700Bold';
   font-size: 21px;
   margin-left: 12px;
 `;
 
-export const ViewPonts = styled.View`
+export const BarModalFeedbackSection = styled.View`
   flex-direction: row;
-  justify-content: flex-start;
-  margin-top: 6px;
+  margin-top: 15px;
 `;
 
-export const IconsFeedback = styled.View`
+export const BarModalFeedback = styled.View`
   flex-direction: row;
-  margin-left: 18px;
-`;
-
-export const TextFeedback = styled.Text`
-  font-weight: normal;
-  font-size: 15px;
-  font-family: 'Lato_400Regular';
-  margin: 0 3px;
-  margin-top: 5px;
-`;
-
-export const IconsFeedback2 = styled.View`
-  margin-left: 37px;
-  flex-direction: row;
-`;
-
-export const ViewDescription = styled.View`
-  flex: 1;
-  align-items: flex-start;
-`;
-
-export const TextDescription = styled.Text`
-  margin-left: 18px;
-  font-size: 18px;
-  font-family: 'Lato_400Regular';
-  margin-top: 17px;
-  text-align: left;
-  margin-right: 18px;
-`;
-
-export const SignInButton = styled.TouchableOpacity`
-  width: 100%;
-  margin: 45px 0;
-  height: 48px;
-  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.18);
   align-items: center;
 `;
 
-export const ButtonBackground = styled(LinearGradient)`
+export const BarModalFeedbackText = styled.Text`
+  font-family: 'Lato_400Regular';
+  font-size: 15px;
+  margin-left: 3px;
+`;
+
+export const BarModalDescription = styled.Text`
+  flex: 1;
+  font-family: 'Lato_400Regular';
+  font-size: 18px;
+  margin-top: 17px;
+`;
+
+export const BarModalButton = styled.TouchableOpacity`
+  width: 100%;
+  height: 48px;
+  margin-bottom: 45px;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.18);
+`;
+
+export const BarModalButtonBackground = styled(LinearGradient)`
   flex: 1;
   flex-direction: row;
-  width: 246px;
   align-items: center;
   justify-content: center;
   border-radius: 30px;
 `;
 
-export const ButtonText = styled.Text`
+export const BarModalButtonText = styled.Text`
   font-family: 'Lato_700Bold';
   font-size: 18px;
   color: #fff;

@@ -7,25 +7,25 @@ import { useNavigation } from '@react-navigation/native';
 import { Container, QRCodeBackground } from './styles';
 
 const BottomNavigation: React.FC = () => {
+  const { navigate } = useNavigation();
   const route = useRoute();
-  const navigation = useNavigation();
 
-  const handleMyTable = useCallback(() => {
-    navigation.navigate('MyTable');
-  }, [navigation]);
-  const handleMaps = useCallback(() => {
-    navigation.navigate('Maps');
-  }, [navigation]);
-  const handleCards = useCallback(() => {
-    navigation.navigate('Cards');
-  }, [navigation]);
+  const navigateToMyTable = useCallback(() => {
+    navigate('MyTable');
+  }, [navigate]);
+  const navigateToMaps = useCallback(() => {
+    navigate('Maps');
+  }, [navigate]);
+  const navigateToWallet = useCallback(() => {
+    navigate('Wallet');
+  }, [navigate]);
 
   return (
     <Container>
-      <TouchableOpacity onPress={handleMaps}>
+      <TouchableOpacity onPress={navigateToMaps}>
         <Icon name="map-pin" color={route.name === 'Maps' ? '#ff6a13' : '#333'} size={24} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleMyTable}>
+      <TouchableOpacity onPress={navigateToMyTable}>
         <Icon name="users" color={route.name === 'MyTable' ? '#ff6a13' : '#333'} size={24} />
       </TouchableOpacity>
       <TouchableOpacity>
@@ -33,8 +33,8 @@ const BottomNavigation: React.FC = () => {
           <Icon name="maximize" color="#fff" size={30} />
         </QRCodeBackground>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleCards}>
-        <Icon name="credit-card" color={route.name === 'Cards' ? '#ff6a13' : '#333'} size={24} />
+      <TouchableOpacity onPress={navigateToWallet}>
+        <Icon name="credit-card" color={route.name === 'Wallet' ? '#ff6a13' : '#333'} size={24} />
       </TouchableOpacity>
       <TouchableOpacity>
         <Icon name="heart" color={route.name === '' ? '#ff6a13' : '#333'} size={24} />

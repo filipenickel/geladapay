@@ -36,7 +36,7 @@ const Welcome: React.FC = () => {
       <Header>
         <Title>
           <BlackTitle>Bem-Vindo ao </BlackTitle>
-          <OrangeTitle>Choppy</OrangeTitle>
+          <OrangeTitle>Gelada Pay</OrangeTitle>
         </Title>
 
         <Subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem. </Subtitle>

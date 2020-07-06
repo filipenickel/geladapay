@@ -37,7 +37,7 @@ const BottomNavigation: React.FC = () => {
         <Icon name="credit-card" color={route.name === 'Wallet' ? '#ff6a13' : '#333'} size={24} />
       </TouchableOpacity>
       <TouchableOpacity>
-        <Icon name="heart" color={route.name === '' ? '#ff6a13' : '#333'} size={24} />
+        <Icon name="user" color={route.name === '' ? '#ff6a13' : '#333'} size={24} />
       </TouchableOpacity>
     </Container>
   );

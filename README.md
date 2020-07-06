@@ -15,11 +15,13 @@ npm install
 
 
 ## Executando o GeladaPay
-Para executar o aplicativo roda o seguinte comando
+Para executar o aplicativo, rode o seguinte comando
 
 ```npm
 npm run android
 ```
+
+Obs: Sem suporte a iOS no momento.
 
 ## Contribuição
 
